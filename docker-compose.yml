@@ -21,6 +21,7 @@ services:
     environment:
         MYSQL_USER: "user"
         MYSQL_PASSWORD: "Password#"
+        MYSQL_ROOT_PASSWORD: "SuperSecret"
         MYSQL_DATABASE: "sample_db"
     ports:
       - "5555:3306"
