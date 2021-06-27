@@ -6,7 +6,7 @@ services:
       context: .
       args:
         username: "user"
-        port: "5555"
+        port: "3306"
         password: "Password#"
         ip: "172.16.10.20"
         name: "sample_db"
@@ -26,7 +26,7 @@ services:
         MYSQL_ROOT_PASSWORD: "SuperSecret"
         MYSQL_DATABASE: "sample_db"
     ports:
-      - "5555:80"
+      - "80:80"
     networks:
       app_net:
         ipv4_address: "172.16.10.20"
