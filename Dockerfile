@@ -31,6 +31,7 @@ RUN apk add openjdk8-jre \
 # Copy artifacts
 WORKDIR /opt/tomcat/webapps
 COPY --from=builder /tmp/App42PaaS-Java-MySQL-Sample/target/*.war .
+COPY --from=builder /tmp/App42PaaS-Java-MySQL-Sample/WebContent/Config.properties ./ROOT/
 
 # Container launch conditions
 EXPOSE 8080
