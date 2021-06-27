@@ -1,4 +1,4 @@
-FROM maven:3.2.5-jdk-6 AS builder
+FROM maven:3.8.1-jdk-8 AS builder
 
 ARG username
 ARG port
@@ -23,7 +23,7 @@ RUN mvn package
 FROM alpine:3.13
 # Install Tomcat 9
 RUN apk add openjdk8-jre \
-    && wget http://apache.rediris.es/tomcat/tomcat-9/v9.0.46/bin/apache-tomcat-9.0.46.tar.gz -O /tmp/tomcat9.tar.gz \
+    && wget http://apache.rediris.es/tomcat/tomcat-9/v9.0.48/bin/apache-tomcat-9.0.48.tar.gz -O /tmp/tomcat9.tar.gz \
     && mkdir /opt/tomcat \
     && tar xvzf /tmp/tomcat9.tar.gz  --strip-components 1 --directory /opt/tomcat \
     && rm /tmp/tomcat9.tar.gz
