@@ -9,7 +9,9 @@ services:
         port: "5555"
         password: "Password#"
         ip: "172.16.10.20"
-        name: "sample_db" 
+        name: "sample_db"
+    depends_on:
+      - db_app
     ports:
       - "8090:8080"
     networks:
