@@ -5,11 +5,11 @@ services:
     build:
       context: .
       args:
-        username: "user"
-        port: "3306"
-        password: "Password#"
-        ip: "172.16.10.20"
-        name: "sample_db"
+        username: user
+        port: 3306
+        password: Password#
+        ip: 172.16.10.20
+        name: sample_db
     depends_on:
       - db_app
     ports:
