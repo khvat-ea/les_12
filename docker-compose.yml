@@ -1,12 +1,14 @@
+---
 version: "3.9"
 services:
-    web_app:
-        build:
-            context: .
-            args:
-                username: "user"
-                port: "5555"
-                password: "Password#"
-                ip: "192.168.5.5"
-                name: "sample" 
-        ports: 8090:8080
+  web_app:
+    build:
+      context: .
+      args:
+        username: "user"
+        port: "5555"
+        password: "Password#"
+        ip: "192.168.5.5"
+        name: "sample" 
+    ports:
+      - "8090:8080"
