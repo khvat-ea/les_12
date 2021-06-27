@@ -26,7 +26,7 @@ services:
         MYSQL_ROOT_PASSWORD: "SuperSecret"
         MYSQL_DATABASE: "sample_db"
     ports:
-      - "5555:3306"
+      - "5555:80"
     networks:
       app_net:
         ipv4_address: "172.16.10.20"
