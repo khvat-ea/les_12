@@ -1,4 +1,4 @@
-FROM maven:3 AS builder
+FROM maven:3.2.5-jdk-6 AS builder
 
 ARG username
 ARG port
