@@ -11,11 +11,11 @@ WORKDIR /tmp
 RUN git clone https://github.com/shephertz/App42PaaS-Java-MySQL-Sample.git
 
 WORKDIR /tmp/App42PaaS-Java-MySQL-Sample
-# RUN  sed -i '/^app42.paas.db.username/s/.*/app42.paas.db.username = "'${username}'"/g' WebContent/Config.properties \
-#     && sed -i '/^app42.paas.db.port/s/.*/app42.paas.db.port = "'${port}'"/g' WebContent/Config.properties \
-#     && sed -i '/^app42.paas.db.password/s/.*/app42.paas.db.password = "'${password}'"/g' WebContent/Config.properties \
-#     && sed -i '/^app42.paas.db.ip/s/.*/app42.paas.db.ip = "'${ip}'"/g' WebContent/Config.properties \
-#     && sed -i '/^app42.paas.db.name/s/.*/app42.paas.db.name = "'${name}'"/g' WebContent/Config.properties
+RUN  sed -i '/^app42.paas.db.username/s/.*/app42.paas.db.username = '${username}'/g' WebContent/Config.properties \
+    && sed -i '/^app42.paas.db.port/s/.*/app42.paas.db.port = '${port}'/g' WebContent/Config.properties \
+    && sed -i '/^app42.paas.db.password/s/.*/app42.paas.db.password = '${password}'/g' WebContent/Config.properties \
+    && sed -i '/^app42.paas.db.ip/s/.*/app42.paas.db.ip = '${ip}'/g' WebContent/Config.properties \
+    && sed -i '/^app42.paas.db.name/s/.*/app42.paas.db.name = '${name}'/g' WebContent/Config.properties
 
 RUN mvn package
 
