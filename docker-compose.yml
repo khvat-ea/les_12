@@ -8,15 +8,12 @@ services:
         username: user
         port: 3306
         password: Password#
-        ip: 172.16.10.20
+        ip: db_app
         name: sample_db
     depends_on:
       - db_app
     ports:
       - "8090:8080"
-    networks:
-      app_net:
-        ipv4_address: "172.16.10.10"
   
   db_app:
     image: "mysql:5.7.5"
@@ -27,13 +24,3 @@ services:
         MYSQL_PASSWORD: "Password#"
         MYSQL_ROOT_PASSWORD: "SuperSecret"
         MYSQL_DATABASE: "sample_db"
-    networks:
-      app_net:
-        ipv4_address: "172.16.10.20"
-
-networks:
-  app_net:
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.16.10.0/24"
