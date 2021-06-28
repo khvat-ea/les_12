@@ -20,6 +20,8 @@ services:
   
   db_app:
     image: "mysql:5.7.5"
+    volumes: 
+      - /home/User/App/DB:/var/lib/mysql
     environment:
         MYSQL_USER: "user"
         MYSQL_PASSWORD: "Password#"
