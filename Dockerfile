@@ -1,15 +1,17 @@
 FROM maven:3.2.5-jdk-8 AS builder
 
+# Parameters for connecting to the database
 ARG username
 ARG port
 ARG password
 ARG ip
 ARG name
 
-
+# Temporary cloning of a project
 WORKDIR /tmp
 RUN git clone https://github.com/shephertz/App42PaaS-Java-MySQL-Sample.git
 
+# Build process
 WORKDIR /tmp/App42PaaS-Java-MySQL-Sample
 RUN mvn package
 RUN  sed -i '/^app42.paas.db.username/s/.*/app42.paas.db.username = '${username}'/g' WebContent/Config.properties \
@@ -27,11 +29,10 @@ RUN apk add openjdk8-jre \
     && tar xvzf /tmp/tomcat9.tar.gz  --strip-components 1 --directory /opt/tomcat \
     && rm /tmp/tomcat9.tar.gz
 
-# Copy artifacts
+# Copy all artifacts
 WORKDIR /opt/tomcat/webapps
 COPY --from=builder /tmp/App42PaaS-Java-MySQL-Sample/target/*.war .
 COPY --from=builder /tmp/App42PaaS-Java-MySQL-Sample/WebContent/Config.properties ./ROOT/
-RUN cat ./ROOT/Config.properties
 
 # Container launch conditions
 EXPOSE 8080
